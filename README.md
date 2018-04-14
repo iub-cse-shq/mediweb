@@ -1,32 +1,51 @@
-**How to set up the code**
+# MediWeb- The Medical Assistance App #
+![Screenshot](img1.png)
 
-1. Install [Node.js](https://nodejs.org/en/download/) and [MongoDB](https://www.mongodb.com/download-center?jmp=nav) on your computer
+## About the application ##
+A web based application that servers to improve a patient's experience while availing any kind of medical or health related services
 
-2. Download this code, and from command prompt run:
+### Functionalities ###
+* Home Page
+* List of all doctors in the database
+* List of all doctors in the specified area
+* List of all the pharmacy in the database
+* List of all the pharmacy in the specified area
+* FAQ Page displaying answer to some common queries 
 
-   `npm install`
 
 
-   `bower install`
+2. ***This page shows the Home page***
+
+![Screenshot](Home.png)
 
 
-3. To run the code, run:
+2. ***This page shows the functionalities of how the information about the doctor can be viewed***
 
-    `node server.js`
+![Screenshot](FindDoc.png)
 
-    
-4. In the browser open http://localhost:3000/, and you should see the index page
 
-**Exposed APIs**:
+3. ***This page shows the functionalities of how the information about the pharmacy can be viewed***
 
-GET **/api/articles** (returns list of articles)
+![Screenshot](FindPhar.png)
 
-POST **/api/articles** (create new article)
 
-GET **/api/articles/:articleId** (returns an article with matching id)
+4. ***This page shows the functionalities of how the information about the pharmacy can be viewed***
 
-DELETE **/api/articles/:articleId** (deletes the matching article)
+![Screenshot](FindPhar.png)
 
-GET **/api/articles/edit/:articleId** (returns an article with matching id)
 
-PUT **/api/articles/edit/:articleId** (updates the matching article)
+5. ***This page shows the page showing some information about us***
+
+![Screenshot](About.png)
+
+
+6. ***This page shows the FAQ page***
+
+![Screenshot](Faq.png)
+
+
+7. ***This page shows the links to the social media pages**
+
+![Screenshot](Social.png)
+
+
