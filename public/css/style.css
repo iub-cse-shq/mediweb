@@ -1,0 +1,27 @@
+@media (max-width: 799px) and (min-width: 250px){
+
+body{
+		background-image: url("/images/background2.gif");
+		background-size: cover;
+		background-repeat: no-repeat;
+		
+	} 
+}
+@media (max-width: 2000px) and (min-width: 800px)
+		{
+    		body
+				{
+					background-image: url("/images/background.jpg");
+					background-repeat: no-repeat;
+					background-size: cover;
+					color: black; 
+					
+				}
+		}
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>New Doctor Form</title>
+    </head>  
+    <body>
+        <h1>Add New Dcotor</h1>
+        <p>Name:</p>
+        <input type="name" id="name"/><br/>
+        <p>Description</p>
+        <textarea id="description">Add description </textarea><br/><br/>
+        <p>Contact:</p>
+        <input type="contact" id="contact"/><br/>
+        <p>Address:</p>
+        <input type="address" id="address"/><br/>
+        <p>Area:</p>
+        <input type="area" id="area"/><br/>
+        <button id="submit">Submit</button>
+        
+        
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+        var newDoc = {name:"", description:"",contact:"", address:"", area:""};
+            $('#submit').click(function(){
+               console.log('submit clicked');
+                newDoc.name= $('#name').val();
+                newDoc.description = $('#description').val();
+                newDoc.contact= $('#contact').val();
+                newDoc.address = $('#address').val();
+                newDoc.area = $('#area').val();
+                $.ajax({
+                    method: "POST",
+                    url: "/api/doctors",
+                    data: newDoc
+                }).done(function(response){
+                    console.log(response);
+                    window.location.replace('/doctors/' + response._id);
+                }).fail(function(response){
+                    $('#error').text(JSON.parse(response.responseText).message);
+                    console.log(response.responseText);
+                });
+                
+            });
+        </script>
+    </body>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Patient Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Name -->
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">Med Connect</a>
+			</div>
+
+			<!-- items -->
+			<div>
+				<ul class="nav navbar-nav">
+					<li><a href="/">HOME</a></li>
+					<li><a href="/doctors/all">FIND DOCTOR</a></li>
+					<li class="active"><a href="/pharmacies/all">FIND NEARBY PHARMACY</a></li>
+					<li><a href="/others/about">ABOUT</a></li>
+					<li><a href="/others/faq">FAQs</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<h3>FIND PHARMACIES NEAR YOU</h3>
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#popUpWindow">Find</button>
+
+		    <div class="modal fade" id="popUpWindow">
+		        <div class="modal-dialog">
+		            <div class="modal-content">
+
+		                <!-- header -->
+		                <div class="modal-header">
+		                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+		                    <h3 class="modal-title">Enter Your Area</h3>
+		                </div>
+
+		                <!-- body (form) -->
+		                <div class="modal-body">
+		                    <form role="form">
+		                        <div class="form-group">
+		                            <input type="Area" class="form-control" placeholder="Area" id="area">
+		                        </div>
+		                    </form>
+		                </div>
+
+		                <div class="modal-footer">
+		                	<button class="btn btn-primary btn-block" id="submit">Submit</button>
+
+		                </div>
+
+		            </div>
+		        </div>
+    		</div>
+    		<h3>View All Pharmacies</h3>
+				<button type="button" class="btn btn-success" id="all">View</button>
+    		
+    		<div id="list">
+			
+			</div>
+
+	</div>
+	
+	<script>
+	  $("#submit").click(function(){
+	   var area= $('#area').val();
+	   var query = "area="+area;
+	    $.get("/api/pharmacies/find?"+query, function(data, status){
+	      var html = new EJS({url: '/views/pharmacy/phList.ejs'}).render({pharmacy:data});
+	      $("#list").html(html);
+	    });
+	  });
+	 </script>
+	  
+	 <script>
+		  $("#all").click(function(){
+		    $.get("/api/pharmacies", function(data,status){
+		      var html = new EJS({url: '/views/pharmacy/allPh.ejs'}).render({pharmacy:data});
+		    $("#list").html(html);
+		    });
+		  });
+  	</script>
+	
+	
+	<script src="/vendor/ejs_production.js"></script>
+
+</body>
