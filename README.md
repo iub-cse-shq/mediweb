@@ -47,3 +47,5 @@ A web based application that servers to improve a patient's experience while ava
 7. ***This page shows the links to the social media pages**
 
 ![Screenshot](Social.png)
+
+
